@@ -1,0 +1,94 @@
+{
+  "schema_version": 4,
+  "type": "tater_wake_word_bundle",
+  "wake_word": "Hey Marzipan",
+  "key": "hey_marzipan",
+  "created_at": "2026-11-23T16:11:57.929402+00:00",
+  "updated_at": "2026-11-24T16:04:59.512448+00:00",
+  "micro_wake_word": {
+    "type": "micro",
+    "wake_word": "Hey Marzipan",
+    "label": "Hey Marzipan",
+    "author": "Tater Totterson",
+    "website": "https://github.com/TaterTotterson/microWakeWord-Trainer-Nvidia-Docker.git",
+    "model": "hey_marzipan.tflite",
+    "trained_languages": [
+      "de"
+    ],
+    "version": 2,
+    "model_format": "tflite_stream_state_internal_quant",
+    "quantization": "int8",
+    "sample_rate": 16000,
+    "micro": {
+      "probability_cutoff": 0.99,
+      "sliding_window_size": 5,
+      "feature_step_size": 10,
+      "tensor_arena_size": 30000,
+      "minimum_esphome_version": "2024.7.0"
+    },
+    "tater_native": {
+      "format_version": 1,
+      "wake_threshold": 0.99,
+      "wake_sliding_window": 5,
+      "close_miss_threshold": 0.82,
+      "frontend": {
+        "name": "tflm_microfrontend",
+        "sample_rate": 16000,
+        "feature_duration_ms": 30,
+        "feature_step_ms": 10,
+        "feature_size": 40,
+        "input_feature_frames": 2,
+        "lower_band_limit": 125.0,
+        "upper_band_limit": 7500.0
+      },
+      "recommended_for": [
+        "tater-native-satellite",
+        "voice-pe"
+      ]
+    },
+    "calibration": {
+      "target_false_accepts_per_hour": 0.25,
+      "selected_false_accepts_per_hour_limit": 0.25,
+      "recall": 0.9862,
+      "false_accepts_per_hour": 0.206817,
+      "ambient_hours": 9.670378,
+      "positive_dataset": "validation",
+      "ambient_dataset": "validation_ambient",
+      "positive_tracks": 50000,
+      "ambient_tracks": 4,
+      "generated_at": "2026-11-23T14:58:49.390805+00:00"
+    },
+    "model_sha256": "ac71bf468a200c1c6b02ecb5db42fa3649db5c201f0876fcbc9597a11d522372",
+    "model_size_bytes": 137960
+  },
+  "wake_boundary": {
+    "threshold": 0.95,
+    "tensor_arena_size": 65536,
+    "training_strategy": "endpoint_hard_negative_v1",
+    "quality_summary": {
+      "recall": 0.92982,
+      "false_accepts_per_hour": 0.413631,
+      "ambient_hours": 9.670467
+    },
+    "type": "wake_word_end",
+    "model": "hey_marzipan.boundary.tflite",
+    "model_sha256": "b6980dc29a538c397959f84e2f96dc64211bbdb92670836a88618c60334fcb26",
+    "model_size_bytes": 137960,
+    "model_format": "tflite_stream_state_internal_quant",
+    "quantization": "int8",
+    "sample_rate": 16000,
+    "search_before_ms": 700,
+    "search_after_ms": 120,
+    "endpoint_offset_ms": 0,
+    "frontend": {
+      "name": "tflm_microfrontend",
+      "sample_rate": 16000,
+      "feature_duration_ms": 30,
+      "feature_step_ms": 10,
+      "feature_size": 40,
+      "input_feature_frames": 2,
+      "lower_band_limit": 125.0,
+      "upper_band_limit": 7500.0
+    }
+  }
+}
